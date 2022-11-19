@@ -18,7 +18,7 @@ let package = Package(
             targets: ["EosioSwiftVault"]),
     ],
     dependencies: [
-        .package(name: "EosioSwift", url: "https://github.com/EOSIO/eosio-swift", from: "1.0.0"),
+        .package(name: "EosioSwift", url: "https://github.com/sweatpotato13/eosio-swift", from: "1.0.0"),
         .package(url: "https://github.com/realm/SwiftLint", from: "0.39.1")
     ],
     targets: [
