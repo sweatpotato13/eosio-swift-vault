@@ -1,7 +1,7 @@
-![Swift Logo](https://github.com/EOSIO/eosio-swift-vault/raw/master/img/swift-logo.png)
+![Swift Logo](https://github.com/sweatpotato13/eosio-swift-vault/raw/master/img/swift-logo.png)
 # EOSIO SDK for Swift: Vault
 
-[![Software License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/EOSIO/eosio-swift/blob/master/LICENSE)
+[![Software License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/sweatpotato13/eosio-swift/blob/master/LICENSE)
 [![Swift 5.0](https://img.shields.io/badge/Language-Swift_5.0-orange.svg)](https://swift.org)
 ![](https://img.shields.io/badge/Deployment%20Target-iOS%2011.3-blue.svg)
 
@@ -9,7 +9,7 @@ EOSIO SDK for Swift: Vault consists of two main components; _Vault_ and _Vault S
 
 _Vault_ is a utility library for working with public/private keys and signing with Apple's Keychain and Secure Enclave. It exposes key generation, management and signing functions that can be called directly.
 
-_Vault Signature Provider_ is a pluggable signature provider for [EOSIO SDK for Swift](https://github.com/EOSIO/eosio-swift) that depends on _Vault_. It allows for signing transactions using keys stored in Keychain or the device's Secure Enclave.
+_Vault Signature Provider_ is a pluggable signature provider for [EOSIO SDK for Swift](https://github.com/sweatpotato13/eosio-swift) that depends on _Vault_. It allows for signing transactions using keys stored in Keychain or the device's Secure Enclave.
 
 *All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.*
 
@@ -33,14 +33,14 @@ _Vault Signature Provider_ is a pluggable signature provider for [EOSIO SDK for 
 
 ## About Signature Providers
 
-The Signature Provider abstraction is arguably the most useful of all of the [EOSIO SDK for Swift](https://github.com/EOSIO/eosio-swift) providers. It is responsible for:
+The Signature Provider abstraction is arguably the most useful of all of the [EOSIO SDK for Swift](https://github.com/sweatpotato13/eosio-swift) providers. It is responsible for:
 
 * finding out what keys are available for signing (`getAvailableKeys`), and
 * requesting and obtaining transaction signatures with a subset of the available keys (`signTransaction`).
 
-By simply switching out the signature provider on a transaction, signature requests can be routed any number of ways. Need a signature from keys in the platform's Keychain or Secure Enclave? [Configure the `EosioTransaction`](https://github.com/EOSIO/eosio-swift#basic-usage) with this signature provider. Need software signing? Take a look at the [Softkey Signature Provider](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwiftSoftkeySignatureProvider/EosioSoftkeySignatureProvider.swift) component of [EOSIO SDK for Swift](https://github.com/EOSIO/eosio-swift).
+By simply switching out the signature provider on a transaction, signature requests can be routed any number of ways. Need a signature from keys in the platform's Keychain or Secure Enclave? [Configure the `EosioTransaction`](https://github.com/sweatpotato13/eosio-swift#basic-usage) with this signature provider. Need software signing? Take a look at the [Softkey Signature Provider](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwiftSoftkeySignatureProvider/EosioSoftkeySignatureProvider.swift) component of [EOSIO SDK for Swift](https://github.com/sweatpotato13/eosio-swift).
 
-All signature providers must conform to the [EosioSignatureProviderProtocol](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift) Protocol.
+All signature providers must conform to the [EosioSignatureProviderProtocol](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift) Protocol.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ All signature providers must conform to the [EosioSignatureProviderProtocol](htt
 
 If you are using Vault as part of Vault Signature Provider, Vault will be installed automatically as a dependency.
 
-If you wish to use Vault Signature Provider, add the `EosioSwiftVaultSignatureProvider` product from `https://github.com/EOSIO/eosio-swift-vault` to your application dependencies.
+If you wish to use Vault Signature Provider, add the `EosioSwiftVaultSignatureProvider` product from `https://github.com/sweatpotato13/eosio-swift-vault` to your application dependencies.
 
 Or to include it into a library, add the following to your `Package.swift` definition:
 
@@ -77,7 +77,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(name: "EosioSwiftVault", url: "https://github.com/EOSIO/eosio-swift-vault", from: "1.0.0"))
+        .package(name: "EosioSwiftVault", url: "https://github.com/sweatpotato13/eosio-swift-vault", from: "1.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -127,11 +127,11 @@ If you are using the Vault Signature Provider component there are some additiona
 
 You must also configure your application as a member of an App Group. See [Apple's documentation here](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps#2974917) for instructions on enabling and configuring the App Group Capability in Xcode.
 
-Now Vault Signature Provider is ready for use within EOSIO SDK for Swift according to the [EOSIO SDK for Swift Basic Usage instructions](https://github.com/EOSIO/eosio-swift/tree/master#basic-usage).
+Now Vault Signature Provider is ready for use within EOSIO SDK for Swift according to the [EOSIO SDK for Swift Basic Usage instructions](https://github.com/sweatpotato13/eosio-swift/tree/master#basic-usage).
 
 ## Vault Signature Provider Usage
 
-Generally, signature providers are called by [`EosioTransaction`](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift) during signing. ([See an example here.](https://github.com/EOSIO/eosio-swift#basic-usage)) If you find, however, that you need to get available keys or request signing directly, this library can be invoked as follows:
+Generally, signature providers are called by [`EosioTransaction`](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift) during signing. ([See an example here.](https://github.com/sweatpotato13/eosio-swift#basic-usage)) If you find, however, that you need to get available keys or request signing directly, this library can be invoked as follows:
 
 ```swift
 let signProvider = try? EosioVaultSignatureProvider(accessGroup: "YOUR_ACCESS_GROUP")
@@ -140,7 +140,7 @@ let publicKeysArray = signProvider?.getAvailableKeys() // Returns the public key
 
 _[Learn more about Access Groups here.](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)_
 
-To sign an [`EosioTransaction`](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift), create an [`EosioTransactionSignatureRequest`](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift) object and call the `EosioVaultSignatureProvider.signTransaction(request:completion:)` method with the request:
+To sign an [`EosioTransaction`](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift), create an [`EosioTransactionSignatureRequest`](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift) object and call the `EosioVaultSignatureProvider.signTransaction(request:completion:)` method with the request:
 
 ```swift
 var signRequest = EosioTransactionSignatureRequest()
@@ -155,9 +155,9 @@ signProvider.signTransaction(request: signRequest) { (response) in
 
 ## Vault Signature Provider Library Methods
 
-This library is an implementation of [`EosioSignatureProviderProtocol`](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift). It implements the following protocol methods:
+This library is an implementation of [`EosioSignatureProviderProtocol`](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioSignatureProviderProtocol/EosioSignatureProviderProtocol.swift). It implements the following protocol methods:
 
-* `EosioVaultSignatureProvider.signTransaction(request:completion:)` signs an [`EosioTransaction`](https://github.com/EOSIO/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift).
+* `EosioVaultSignatureProvider.signTransaction(request:completion:)` signs an [`EosioTransaction`](https://github.com/sweatpotato13/eosio-swift/blob/master/Sources/EosioSwift/EosioTransaction/EosioTransaction.swift).
 * `EosioVaultSignatureProvider.getAvailableKeys(...)` returns an array containing the public keys associated with the private keys that the object is initialized with.
 
 To initialize the implementation:
@@ -267,11 +267,11 @@ Please refer to the generated code documentation at https://eosio.github.io/eosi
 
 ## Want to help?
 
-Interested in contributing? That's awesome! Here are some [Contribution Guidelines](https://github.com/EOSIO/eosio-swift-vault/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/EOSIO/eosio-swift-vault/blob/master/CONTRIBUTING.md#conduct).
+Interested in contributing? That's awesome! Here are some [Contribution Guidelines](https://github.com/sweatpotato13/eosio-swift-vault/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/sweatpotato13/eosio-swift-vault/blob/master/CONTRIBUTING.md#conduct).
 
 ## License
 
-[MIT](https://github.com/EOSIO/eosio-swift-vault/blob/master/LICENSE)
+[MIT](https://github.com/sweatpotato13/eosio-swift-vault/blob/master/LICENSE)
 
 ## Important
 
