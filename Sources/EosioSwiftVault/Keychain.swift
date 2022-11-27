@@ -414,7 +414,7 @@ public class Keychain {
     /// - Throws: If there is a error getting the key
     /// - Returns: An ECKey
     public func getEllipticCurveKey(applicationLabel: Data) throws -> ECKey {
-        //print(applicationLabel.hex)
+        // print(applicationLabel.hex)
         let query: [String: Any] =  [
             kSecClass as String: kSecClassKey,
             kSecAttrAccessGroup as String: accessGroup,
@@ -559,11 +559,11 @@ public class Keychain {
         var b: BigInt // swiftlint:disable:this identifier_name
 
         switch curve.uppercased() {
-        case "R1" :
+        case "R1":
             p = BigInt(BigUInt(Data(hexString: "FFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF")!))
             a = BigInt(-3)
             b = BigInt(BigUInt(Data(hexString: "5AC635D8AA3A93E7B3EBBD55769886BC651D06B0CC53B0F63BCE3C3E27D2604B")!))
-        case "K1" :
+        case "K1":
             p = BigInt(BigUInt(Data(hexString: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F")!))
             a = BigInt(0)
             b = BigInt(7)
@@ -595,7 +595,7 @@ public class Keychain {
                                protection: AccessibleProtection = .whenUnlockedThisDeviceOnly,
                                accessFlag: SecAccessControlCreateFlags? = nil) throws -> ECKey {
 
-        //check data length
+        // check data length
         guard privateKey.count == 97 else {
             throw EosioError(.keyManagementError, reason: "Private Key data should be 97 bytes, found \(privateKey.count) bytes")
         }
