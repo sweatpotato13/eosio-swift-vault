@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
   s.name             = 'EosioSwiftVault'
   s.version          = '1.0.0'
   s.summary          = 'Keychain and Secure Enclave functions for EOSIO.'
-  s.homepage         = 'https://github.com/EOSIO/eosio-swift-vault'
+  s.homepage         = 'https://github.com/sweatpotato13/eosio-swift-vault'
   s.license          = { :type => 'MIT', :text => <<-LICENSE
-                           Copyright (c) 2017-2020 block.one and its contributors.  All rights reserved.
+                           Copyright (c) 2017-2022 Cute_Wisp and its contributors.  All rights reserved.
                          LICENSE
                        }
   s.author           = { 'Todd Bowden' => 'todd.bowden@block.one',
@@ -22,8 +22,9 @@ Pod::Spec.new do |s|
                          'Mark Johnson' => 'mark.johnson@block.one',
                          'Paul Kim' => 'paul.kim@block.one',
                          'Steve McCoole' => 'steve.mccoole@objectpartners.com',
-                         'Ben Martell' => 'ben.martell@objectpartners.com' }
-  s.source           = { :git => 'https://github.com/EOSIO/eosio-swift-vault.git', :tag => s.version.to_s }
+                         'Ben Martell' => 'ben.martell@objectpartners.com', 
+                         'Cute_Wisp' => 'sweatpotato13@gmail.com' }
+  s.source           = { :git => 'https://github.com/sweatpotato13/eosio-swift-vault.git', :tag => s.version.to_s }
 
   s.swift_version         = '5.0'
   s.ios.deployment_target = '12.0'
